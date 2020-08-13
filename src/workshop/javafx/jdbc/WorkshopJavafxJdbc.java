@@ -14,6 +14,8 @@ import javafx.scene.Parent;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -27,8 +29,13 @@ public class WorkshopJavafxJdbc extends Application {
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
-            Parent parent = loader.load();
-            Scene scene = new Scene(parent);
+            ScrollPane scrollPane = loader.load();
+            Scene scene = new Scene(scrollPane);
+            
+            //completar tamanho da tela
+            scrollPane.setFitToHeight(true);
+            scrollPane.setFitToWidth(true);
+            
             primaryStage.setScene(scene);
             primaryStage.setTitle("JavaFX Application");
             primaryStage.show();

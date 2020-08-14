@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package workshop.javafx.jdbc;
+package Application;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -23,14 +23,16 @@ import javafx.stage.Stage;
  *
  * @author cami
  */
-public class WorkshopJavafxJdbc extends Application {
+public class Main extends Application {
 
+    private static Scene scene;
+    
     @Override
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
             ScrollPane scrollPane = loader.load();
-            Scene scene = new Scene(scrollPane);
+            scene = new Scene(scrollPane);
             
             //completar tamanho da tela
             scrollPane.setFitToHeight(true);
@@ -43,7 +45,10 @@ public class WorkshopJavafxJdbc extends Application {
             e.printStackTrace();
         }
     }
-
+    
+    public static Scene getMainScene(){
+        return scene;
+    }
     /**
      * @param args the command line arguments
      */
